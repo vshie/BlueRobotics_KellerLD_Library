@@ -55,9 +55,14 @@ public:
 	 */
 	void setFluidDensity(float density);
 
-	/** The read from I2C takes up for 40 ms, so use sparingly is possible.
+	/** Reads a pressure/temperature measurement from the sensor.
+	 *
+	 * The read from I2C takes up to 40 ms, so use sparingly if possible.
+	 *
+	 * Returns false if the sample's status is flagged as invalid, else
+	 * updates the stored pressure/temperature values and returns true.
 	 */
-	void read();
+	bool read();
 
 	/** Checks if the attached sensor is connectored or not. */
 	bool status();
